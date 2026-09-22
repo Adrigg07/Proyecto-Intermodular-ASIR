@@ -22,3 +22,19 @@ Por otra parte, el crecimiento de la empresa puede implicar la incorporación de
 ### Objetivo general
 
 Diseñar una infraestructura IT para PixelForge Studios que permita desarrollar y servir videojuegos de forma eficiente, proporcionando los recursos necesarios para la actividad de la empresa y posibilitando su crecimiento futuro.
+### Objetivos específicos
+
+* Diseñar la infraestructura de red de PixelForge Studios.
+* Proporcionar recursos informáticos adecuados para los distintos departamentos de la empresa.
+* Configurar los servicios necesarios para el funcionamiento de la empresa.
+* Gestionar y conservar la información relacionada con los proyectos y clientes.
+* Diseñar una infraestructura escalable que permita incorporar nuevos trabajadores, equipos y proyectos.
+* Proporcionar los servicios necesarios para poner los videojuegos a disposición de los usuarios.
+## 1.5. Interesados
+
+| Interesado                  | Relación con el proyecto                                                        | Necesidad principal                                                               |
+| --------------------------- | ------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| Trabajadores                | Utilizan la infraestructura para desarrollar sus actividades                    | Disponer de recursos informáticos y servicios adecuados para realizar su trabajo  |
+| Responsables de la empresa  | Gestionan y supervisan la actividad de PixelForge Studios                       | Contar con una infraestructura fiable, organizada y preparada para el crecimiento |
+| Clientes                    | Están relacionados con los proyectos y videojuegos desarrollados por la empresa | Que sus proyectos e información sean gestionados y conservados adecuadamente      |
+| Usuarios de los videojuegos | Utilizan los videojuegos desarrollados por PixelForge Studios                   | Poder acceder a los videojuegos y utilizarlos correctamente                       |
