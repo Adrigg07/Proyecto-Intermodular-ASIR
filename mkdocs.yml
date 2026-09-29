@@ -1,2 +1,5 @@
 site_name: Proyecto Intermodular ASIR
-docs_dir: docs
+site_url: https://adrigg07.github.io/Proyecto-Intermodular-ASIR/
+nav:
+  - Inicio: index.md
+  - Introducción: 01_introduccion.md
