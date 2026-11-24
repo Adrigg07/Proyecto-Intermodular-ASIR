@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://adrigg07.github.io/Proyecto-Intermodular-ASIR/02_Configuracion_y_Diagrama_Red_ASIR/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Redes y Conectividad - Proyecto Intermodular ASIR</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Proyecto Intermodular ASIR</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../01_introduccion/" class="nav-link">Introducción</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">Redes y Conectividad</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../01_introduccion/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#proyecto-de-fin-de-grado-asir" class="nav-link">Proyecto de Fin de Grado (ASIR)</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#plataforma-de-cursos-online-de-alta-disponibilidad" class="nav-link">Plataforma de Cursos Online de Alta Disponibilidad</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#1-resumen-ejecutivo-de-la-infraestructura-de-red" class="nav-link">1. Resumen Ejecutivo de la Infraestructura de Red</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2-diagrama-de-topologia-de-red" class="nav-link">2. Diagrama de Topología de Red</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3-plan-maestro-de-direccionamiento-ip-y-conexiones-fisicas" class="nav-link">3. Plan Maestro de Direccionamiento IP y Conexiones Físicas</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4-matriz-de-control-de-trafico-y-politicas-de-seguridad-acls" class="nav-link">4. Matriz de Control de Tráfico y Políticas de Seguridad (ACLs)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5-configuraciones-cisco-ios-utilizadas" class="nav-link">5. Configuraciones Cisco IOS Utilizadas</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6-pruebas-de-impacto-y-validacion-en-directo-para-la-defensa" class="nav-link">6. Pruebas de Impacto y Validación en Directo para la Defensa</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="proyecto-de-fin-de-grado-asir">Proyecto de Fin de Grado (ASIR)</h1>
+<h2 id="plataforma-de-cursos-online-de-alta-disponibilidad">Plataforma de Cursos Online de Alta Disponibilidad</h2>
+<h3 id="documento-tecnico-arquitectura-de-red-diagrama-y-configuraciones-ios">Documento Técnico: Arquitectura de Red, Diagrama y Configuraciones IOS</h3>
+<hr />
+<h2 id="1-resumen-ejecutivo-de-la-infraestructura-de-red">1. Resumen Ejecutivo de la Infraestructura de Red</h2>
+<p>El presente diseño implementa la arquitectura de red y seguridad perimetral para una plataforma LMS orientada a alta disponibilidad y tolerancia a fallos. La red está segmentada en cuatro Zonas de Seguridad / VLANs independientes mediante un modelo de enrutamiento <strong>Router-on-a-Stick</strong> con etiquetado IEEE 802.1Q en el cortafuegos perimetral, aplicando principios estrictos de <strong>Zero Trust</strong> y <strong>mínimo privilegio (Least Privilege)</strong>.</p>
+<ul>
+<li><strong>Archivo de Packet Tracer:</strong> <code>TFG_ASIR_Plataforma_HA.pkt</code> (ubicado en esta misma carpeta).</li>
+<li><strong>Modelo de Firewall/Router:</strong> Cisco 2911 ISR (emulación del appliance pfSense/OPNsense en producción).</li>
+<li><strong>Modelo de Switch Core/Distribución:</strong> Cisco Catalyst 2960-24TT.</li>
+</ul>
+<hr />
+<h2 id="2-diagrama-de-topologia-de-red">2. Diagrama de Topología de Red</h2>
+<pre><code class="language-mermaid">graph TD
+    subgraph WAN [&quot;Zona Pública / WAN (198.51.100.0/24 &amp; 203.0.113.0/30)&quot;]
+        User([&quot;PC-Alumnos&lt;br/&gt;198.51.100.50/24&quot;]) --&gt;|Fa0| SW_WAN[&quot;SW-WAN (2960)&quot;]
+        Admin([&quot;Laptop-Admin (WireGuard VPN)&lt;br/&gt;198.51.100.60/24&quot;]) --&gt;|Fa0| SW_WAN
+        SW_WAN --&gt;|Gi0/1| ISP[&quot;ISP-Internet (2911)&lt;br/&gt;Gi0/1: 198.51.100.1/24&quot;]
+        ISP --&gt;|Gi0/0: 203.0.113.1/30| FW[&quot;FW-Perimetral (2911)&lt;br/&gt;WAN Gi0/0: 203.0.113.2/30&quot;]
+    end
+
+    FW --&gt;|&quot;Trunk 802.1Q (Gi0/1 &amp;harr; Gi0/1)&quot;| SW_CORE[&quot;SW-Core Distribución (2960-24TT)&quot;]
+
+    subgraph DMZ [&quot;VLAN 10: DMZ (10.10.10.0/24)&quot;]
+        SW_CORE --&gt;|Fa0/1 - Access V10| Nginx[&quot;Nginx-Proxy (Reverse Proxy / WAF)&lt;br/&gt;IP: 10.10.10.10&quot;]
+    end
+
+    subgraph AppLAN [&quot;VLAN 20: Aplicación y Servicios (10.10.20.0/24)&quot;]
+        SW_CORE --&gt;|Fa0/2 - Access V20| LMS[&quot;LMS-Moodle (Web App)&lt;br/&gt;IP: 10.10.20.10&quot;]
+        SW_CORE --&gt;|Fa0/3 - Access V20| MinIO[&quot;MinIO-S3 (Almacenamiento Objetos)&lt;br/&gt;IP: 10.10.20.20&quot;]
+        SW_CORE --&gt;|Fa0/4 - Access V20| Keycloak[&quot;Keycloak-SSO (Identidad / OIDC)&lt;br/&gt;IP: 10.10.20.30&quot;]
+    end
+
+    subgraph DataLAN [&quot;VLAN 30: Base de Datos Aislada (10.10.30.0/24)&quot;]
+        SW_CORE --&gt;|Fa0/5 - Access V30| DBMaster[&quot;DB-Master (Principal PostgreSQL)&lt;br/&gt;IP: 10.10.30.10&quot;]
+        SW_CORE --&gt;|Fa0/6 - Access V30| DBSlave[&quot;DB-Slave (Réplica Streaming)&lt;br/&gt;IP: 10.10.30.11&quot;]
+        DBMaster &lt;--&gt;|Replicación interna| DBSlave
+    end
+
+    subgraph MgmtLAN [&quot;VLAN 40: Gestión y Monitorización (10.10.40.0/24)&quot;]
+        SW_CORE --&gt;|Fa0/7 - Access V40| Grafana[&quot;Grafana-Loki-Prometheus&lt;br/&gt;IP: 10.10.40.10&quot;]
+        SW_CORE --&gt;|Fa0/8 - Access V40| Ansible[&quot;Ansible-Mgmt (IaC / Control)&lt;br/&gt;IP: 10.10.40.20&quot;]
+        SW_CORE --&gt;|Fa0/9 - Access V40| Backup[&quot;Backup-Server (Restic / Borg)&lt;br/&gt;IP: 10.10.40.30&quot;]
+    end
+</code></pre>
+<hr />
+<h2 id="3-plan-maestro-de-direccionamiento-ip-y-conexiones-fisicas">3. Plan Maestro de Direccionamiento IP y Conexiones Físicas</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Dispositivo</th>
+<th style="text-align: left;">Interfaz</th>
+<th style="text-align: left;">Subred / Rol</th>
+<th style="text-align: left;">Dirección IP / Prefijo</th>
+<th style="text-align: left;">Gateway</th>
+<th style="text-align: left;">VLAN / Modo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>ISP-Internet</strong></td>
+<td style="text-align: left;">Gi0/0</td>
+<td style="text-align: left;">Enlace WAN punto a punto</td>
+<td style="text-align: left;"><code>203.0.113.1/30</code></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Routed</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ISP-Internet</strong></td>
+<td style="text-align: left;">Gi0/1</td>
+<td style="text-align: left;">Red pública simulada</td>
+<td style="text-align: left;"><code>198.51.100.1/24</code></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Routed</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>PC-Alumnos</strong></td>
+<td style="text-align: left;">Fa0</td>
+<td style="text-align: left;">Alumno externo (Internet)</td>
+<td style="text-align: left;"><code>198.51.100.50/24</code></td>
+<td style="text-align: left;"><code>198.51.100.1</code></td>
+<td style="text-align: left;">Access (SW-WAN Fa0/1)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Laptop-Admin</strong></td>
+<td style="text-align: left;">Fa0</td>
+<td style="text-align: left;">SysAdmin Remoto (VPN)</td>
+<td style="text-align: left;"><code>198.51.100.60/24</code></td>
+<td style="text-align: left;"><code>198.51.100.1</code></td>
+<td style="text-align: left;">Access (SW-WAN Fa0/2)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>FW-Perimetral</strong></td>
+<td style="text-align: left;">Gi0/0</td>
+<td style="text-align: left;">WAN Externa hacia ISP</td>
+<td style="text-align: left;"><code>203.0.113.2/30</code></td>
+<td style="text-align: left;"><code>203.0.113.1</code></td>
+<td style="text-align: left;">Routed</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>FW-Perimetral</strong></td>
+<td style="text-align: left;">Gi0/1.10</td>
+<td style="text-align: left;">Gateway Subinterfaz DMZ</td>
+<td style="text-align: left;"><code>10.10.10.1/24</code></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">dot1Q 10</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>FW-Perimetral</strong></td>
+<td style="text-align: left;">Gi0/1.20</td>
+<td style="text-align: left;">Gateway Subinterfaz AppLAN</td>
+<td style="text-align: left;"><code>10.10.20.1/24</code></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">dot1Q 20</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>FW-Perimetral</strong></td>
+<td style="text-align: left;">Gi0/1.30</td>
+<td style="text-align: left;">Gateway Subinterfaz DataLAN</td>
+<td style="text-align: left;"><code>10.10.30.1/24</code></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">dot1Q 30</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>FW-Perimetral</strong></td>
+<td style="text-align: left;">Gi0/1.40</td>
+<td style="text-align: left;">Gateway Subinterfaz MgmtLAN</td>
+<td style="text-align: left;"><code>10.10.40.1/24</code></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">dot1Q 40</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SW-Core</strong></td>
+<td style="text-align: left;">Gi0/1</td>
+<td style="text-align: left;">Troncal 802.1Q hacia FW</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Trunk (10, 20, 30, 40)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Nginx-Proxy</strong></td>
+<td style="text-align: left;">Fa0</td>
+<td style="text-align: left;">Reverse Proxy / WAF</td>
+<td style="text-align: left;"><code>10.10.10.10/24</code></td>
+<td style="text-align: left;"><code>10.10.10.1</code></td>
+<td style="text-align: left;">Access VLAN 10 (Fa0/1)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>LMS-Moodle</strong></td>
+<td style="text-align: left;">Fa0</td>
+<td style="text-align: left;">Aplicación Web LMS</td>
+<td style="text-align: left;"><code>10.10.20.10/24</code></td>
+<td style="text-align: left;"><code>10.10.20.1</code></td>
+<td style="text-align: left;">Access VLAN 20 (Fa0/2)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MinIO-S3</strong></td>
+<td style="text-align: left;">Fa0</td>
+<td style="text-align: left;">Object Storage S3</td>
+<td style="text-align: left;"><code>10.10.20.20/24</code></td>
+<td style="text-align: left;"><code>10.10.20.1</code></td>
+<td style="text-align: left;">Access VLAN 20 (Fa0/3)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Keycloak-SSO</strong></td>
+<td style="text-align: left;">Fa0</td>
+<td style="text-align: left;">Identidad y Autenticación</td>
+<td style="text-align: left;"><code>10.10.20.30/24</code></td>
+<td style="text-align: left;"><code>10.10.20.1</code></td>
+<td style="text-align: left;">Access VLAN 20 (Fa0/4)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>DB-Master</strong></td>
+<td style="text-align: left;">Fa0</td>
+<td style="text-align: left;">PostgreSQL Master</td>
+<td style="text-align: left;"><code>10.10.30.10/24</code></td>
+<td style="text-align: left;"><code>10.10.30.1</code></td>
+<td style="text-align: left;">Access VLAN 30 (Fa0/5)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>DB-Slave</strong></td>
+<td style="text-align: left;">Fa0</td>
+<td style="text-align: left;">PostgreSQL Standby Réplica</td>
+<td style="text-align: left;"><code>10.10.30.11/24</code></td>
+<td style="text-align: left;"><code>10.10.30.1</code></td>
+<td style="text-align: left;">Access VLAN 30 (Fa0/6)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Grafana-Loki</strong></td>
+<td style="text-align: left;">Fa0</td>
+<td style="text-align: left;">Prometheus / Grafana / Loki</td>
+<td style="text-align: left;"><code>10.10.40.10/24</code></td>
+<td style="text-align: left;"><code>10.10.40.1</code></td>
+<td style="text-align: left;">Access VLAN 40 (Fa0/7)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ansible-Mgmt</strong></td>
+<td style="text-align: left;">Fa0</td>
+<td style="text-align: left;">Nodo de Control Ansible</td>
+<td style="text-align: left;"><code>10.10.40.20/24</code></td>
+<td style="text-align: left;"><code>10.10.40.1</code></td>
+<td style="text-align: left;">Access VLAN 40 (Fa0/8)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Backup-Server</strong></td>
+<td style="text-align: left;">Fa0</td>
+<td style="text-align: left;">Servidor Restic/Borg</td>
+<td style="text-align: left;"><code>10.10.40.30/24</code></td>
+<td style="text-align: left;"><code>10.10.40.1</code></td>
+<td style="text-align: left;">Access VLAN 40 (Fa0/9)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-matriz-de-control-de-trafico-y-politicas-de-seguridad-acls">4. Matriz de Control de Tráfico y Políticas de Seguridad (ACLs)</h2>
+<p>Las reglas implementadas en el firewall siguen el principio de <strong>denegación por defecto (implicit deny)</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Origen</th>
+<th style="text-align: left;">Destino</th>
+<th style="text-align: left;">Protocolo / Puerto</th>
+<th style="text-align: left;">Acción</th>
+<th style="text-align: left;">Objetivo de Seguridad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Internet / Alumnos</strong></td>
+<td style="text-align: left;">DMZ (<code>Nginx-Proxy</code>)</td>
+<td style="text-align: left;">TCP 80, 443</td>
+<td style="text-align: left;"><strong>PERMITIR</strong></td>
+<td style="text-align: left;">Publicación segura de la plataforma web sin exponer capas internas.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>DMZ (<code>Nginx-Proxy</code>)</strong></td>
+<td style="text-align: left;">AppLAN (<code>LMS</code>, <code>MinIO</code>, <code>Keycloak</code>)</td>
+<td style="text-align: left;">TCP 80, 443, 8080, 9000, 8443</td>
+<td style="text-align: left;"><strong>PERMITIR</strong></td>
+<td style="text-align: left;">Balanceo y reverse proxy hacia microservicios backend.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>DMZ (<code>Nginx-Proxy</code>)</strong></td>
+<td style="text-align: left;">DataLAN (<code>DB-Master</code>, <code>DB-Slave</code>)</td>
+<td style="text-align: left;">Cualquier puerto</td>
+<td style="text-align: left;"><strong>DENEGAR</strong></td>
+<td style="text-align: left;">Si el proxy web se ve comprometido, no hay acceso a las bases de datos.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>DMZ (<code>Nginx-Proxy</code>)</strong></td>
+<td style="text-align: left;">MgmtLAN</td>
+<td style="text-align: left;">Cualquier puerto</td>
+<td style="text-align: left;"><strong>DENEGAR</strong></td>
+<td style="text-align: left;">Aislamiento total de la red de administración.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>AppLAN (<code>LMS-Moodle</code>)</strong></td>
+<td style="text-align: left;">DataLAN (<code>DB-Master</code>)</td>
+<td style="text-align: left;">TCP 5432 (Postgres) / 3306 (MySQL)</td>
+<td style="text-align: left;"><strong>PERMITIR</strong></td>
+<td style="text-align: left;">Persistencia transaccional de datos del curso y calificaciones.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>AppLAN</strong></td>
+<td style="text-align: left;">MgmtLAN</td>
+<td style="text-align: left;">Cualquier puerto</td>
+<td style="text-align: left;"><strong>DENEGAR</strong></td>
+<td style="text-align: left;">Los contenedores de aplicaciones no pueden comunicarse con monitorización ni backups.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>DataLAN</strong></td>
+<td style="text-align: left;">WAN / Internet</td>
+<td style="text-align: left;">Cualquier puerto</td>
+<td style="text-align: left;"><strong>DENEGAR</strong></td>
+<td style="text-align: left;">Mitigación de fuga de información (exfiltración) y ataques directos externos.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>DataLAN (<code>DB-Master</code>)</strong></td>
+<td style="text-align: left;">DataLAN (<code>DB-Slave</code>)</td>
+<td style="text-align: left;">TCP 5432 / 3306</td>
+<td style="text-align: left;"><strong>PERMITIR</strong></td>
+<td style="text-align: left;">Réplica continua de base de datos para alta disponibilidad y conmutación.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MgmtLAN</strong></td>
+<td style="text-align: left;">Todas las VLANs</td>
+<td style="text-align: left;">TCP 22 (SSH), 9100 (Node Exporter), ICMP</td>
+<td style="text-align: left;"><strong>PERMITIR</strong></td>
+<td style="text-align: left;">Recolección de métricas Prometheus, orquestación Ansible y respaldos programados.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>VPN WireGuard (Admin Remoto)</strong></td>
+<td style="text-align: left;">MgmtLAN &amp; Consolas</td>
+<td style="text-align: left;">Puerto túnel seguro</td>
+<td style="text-align: left;"><strong>PERMITIR</strong></td>
+<td style="text-align: left;">Acceso administrative remoto cifrado sin exponer puertos de gestión a Internet.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-configuraciones-cisco-ios-utilizadas">5. Configuraciones Cisco IOS Utilizadas</h2>
+<h3 id="51-fw-perimetral-router-on-a-stick-hardening-acls">5.1. FW-Perimetral (Router-on-a-Stick + Hardening + ACLs)</h3>
+<pre><code class="language-cisco">! ==============================================================================
+! DISPOSITIVO: FW-Perimetral (Cisco 2911)
+! ROL: Cortafuegos perimetral y Gateway Inter-VLAN (pfSense equivalente)
+! ==============================================================================
+enable
+configure terminal
+
+hostname FW-Perimetral
+
+! --- BASTIONADO (HARDENING) DE ACCESO Y SEGURIDAD ---
+service password-encryption
+enable secret cisco123
+banner motd #ACCESO RESTRINGIDO - TFG ASIR FW-PERIMETRAL LMS#
+
+username admin privilege 15 secret asir2026
+ip domain-name asir.lab
+crypto key generate rsa modulus 1024
+ip ssh version 2
+
+line console 0
+ login local
+ exit
+
+line vty 0 4
+ transport input ssh
+ login local
+ exit
+
+! --- INTERFAZ WAN HACIA ISP ---
+interface GigabitEthernet0/0
+ description ENLACE_WAN_ISP
+ ip address 203.0.113.2 255.255.255.252
+ no shutdown
+ exit
+
+! --- INTERFAZ TRONCAL E INTER-VLAN (ROUTER-ON-A-STICK) ---
+interface GigabitEthernet0/1
+ description TRUNK_HACIA_SW_CORE
+ no ip address
+ no shutdown
+ exit
+
+! Gateway VLAN 10: DMZ
+interface GigabitEthernet0/1.10
+ description GW_VLAN10_DMZ
+ encapsulation dot1Q 10
+ ip address 10.10.10.1 255.255.255.0
+ ip access-group 101 in
+ no shutdown
+ exit
+
+! Gateway VLAN 20: Aplicación y Servicios
+interface GigabitEthernet0/1.20
+ description GW_VLAN20_APPLAN
+ encapsulation dot1Q 20
+ ip address 10.10.20.1 255.255.255.0
+ ip access-group 102 in
+ no shutdown
+ exit
+
+! Gateway VLAN 30: Base de Datos Aislada
+interface GigabitEthernet0/1.30
+ description GW_VLAN30_DATALAN
+ encapsulation dot1Q 30
+ ip address 10.10.30.1 255.255.255.0
+ ip access-group 103 in
+ no shutdown
+ exit
+
+! Gateway VLAN 40: Gestión y Monitorización
+interface GigabitEthernet0/1.40
+ description GW_VLAN40_MGMTLAN
+ encapsulation dot1Q 40
+ ip address 10.10.40.1 255.255.255.0
+ no shutdown
+ exit
+
+! --- ENRUTAMIENTO ESTÁTICO HACIA INTERNET ---
+ip route 0.0.0.0 0.0.0.0 203.0.113.1
+
+! --- LISTAS DE CONTROL DE ACCESO (ACLS EXTENDIDAS) ---
+
+! ACL 101: Filtrado de tráfico entrante desde la DMZ
+! Deniega acceso a bases de datos y gestión; permite tráfico hacia AppLAN e Internet
+access-list 101 deny ip 10.10.10.0 0.0.0.255 10.10.30.0 0.0.0.255
+access-list 101 deny ip 10.10.10.0 0.0.0.255 10.10.40.0 0.0.0.255
+access-list 101 permit ip 10.10.10.0 0.0.0.255 10.10.20.0 0.0.0.255
+access-list 101 permit ip any any
+
+! ACL 102: Filtrado de tráfico entrante desde AppLAN
+! Permite acceso a base de datos para persistencia; deniega acceso a red de gestión
+access-list 102 deny ip 10.10.20.0 0.0.0.255 10.10.40.0 0.0.0.255
+access-list 102 permit ip 10.10.20.0 0.0.0.255 10.10.30.0 0.0.0.255
+access-list 102 permit ip any any
+
+! ACL 103: Aislamiento estricto de DataLAN
+! Permite replicación interna y respuestas a App y Mgmt; bloquea salida a Internet
+access-list 103 permit ip 10.10.30.0 0.0.0.255 10.10.30.0 0.0.0.255
+access-list 103 permit ip 10.10.30.0 0.0.0.255 10.10.20.0 0.0.0.255
+access-list 103 permit ip 10.10.30.0 0.0.0.255 10.10.40.0 0.0.0.255
+access-list 103 deny ip any any
+
+end
+write memory
+</code></pre>
+<hr />
+<h3 id="52-sw-core-switch-catalyst-2960-24tt">5.2. SW-Core (Switch Catalyst 2960-24TT)</h3>
+<pre><code class="language-cisco">! ==============================================================================
+! DISPOSITIVO: SW-Core (Cisco 2960-24TT)
+! ROL: Switch de distribución central y segmentación de puertos
+! ==============================================================================
+enable
+configure terminal
+
+hostname SW-Core
+
+! --- BASTIONADO (HARDENING) ---
+service password-encryption
+enable secret cisco123
+banner motd #SWITCH CORE DISTRIBUCION - TFG ASIR#
+
+username admin privilege 15 secret asir2026
+ip domain-name asir.lab
+crypto key generate rsa modulus 1024
+ip ssh version 2
+
+line console 0
+ login local
+ exit
+
+line vty 0 4
+ transport input ssh
+ login local
+ exit
+
+! --- CREACIÓN DE LA BASE DE DATOS DE VLANS ---
+vlan 10
+ name DMZ
+ exit
+
+vlan 20
+ name AppLAN
+ exit
+
+vlan 30
+ name DataLAN
+ exit
+
+vlan 40
+ name MgmtLAN
+ exit
+
+! --- ENLACE TRONCAL AL FIREWALL PERIMETRAL ---
+interface GigabitEthernet0/1
+ description UPLINK_TRUNK_FW_PERIMETRAL
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20,30,40
+ no shutdown
+ exit
+
+! --- ASIGNACIÓN DE PUERTOS DE ACCESO A SERVIDORES ---
+
+! VLAN 10 (DMZ): Nginx Reverse Proxy / WAF
+interface FastEthernet0/1
+ description SRV_NGINX_PROXY
+ switchport mode access
+ switchport access vlan 10
+ no shutdown
+ exit
+
+! VLAN 20 (AppLAN): Plataforma Web, MinIO y Keycloak
+interface FastEthernet0/2
+ description SRV_LMS_MOODLE
+ switchport mode access
+ switchport access vlan 20
+ no shutdown
+ exit
+
+interface FastEthernet0/3
+ description SRV_MINIO_S3
+ switchport mode access
+ switchport access vlan 20
+ no shutdown
+ exit
+
+interface FastEthernet0/4
+ description SRV_KEYCLOAK_SSO
+ switchport mode access
+ switchport access vlan 20
+ no shutdown
+ exit
+
+! VLAN 30 (DataLAN): Clúster de Base de Datos
+interface FastEthernet0/5
+ description SRV_DB_MASTER
+ switchport mode access
+ switchport access vlan 30
+ no shutdown
+ exit
+
+interface FastEthernet0/6
+ description SRV_DB_SLAVE_REPLICA
+ switchport mode access
+ switchport access vlan 30
+ no shutdown
+ exit
+
+! VLAN 40 (MgmtLAN): Monitorización, Ansible y Backups
+interface FastEthernet0/7
+ description SRV_MONITORING_GRAFANA_LOKI
+ switchport mode access
+ switchport access vlan 40
+ no shutdown
+ exit
+
+interface FastEthernet0/8
+ description SRV_ANSIBLE_IAC_MGMT
+ switchport mode access
+ switchport access vlan 40
+ no shutdown
+ exit
+
+interface FastEthernet0/9
+ description SRV_BACKUP_SERVER
+ switchport mode access
+ switchport access vlan 40
+ no shutdown
+ exit
+
+end
+write memory
+</code></pre>
+<hr />
+<h3 id="53-isp-internet-router-wan-simulado">5.3. ISP-Internet (Router WAN Simulado)</h3>
+<pre><code class="language-cisco">! ==============================================================================
+! DISPOSITIVO: ISP-Internet (Cisco 2911)
+! ROL: Simulación del proveedor de servicios de Internet y red pública
+! ==============================================================================
+enable
+configure terminal
+
+hostname ISP-Internet
+
+interface GigabitEthernet0/0
+ description ENLACE_P2P_HACIA_FW_PERIMETRAL
+ ip address 203.0.113.1 255.255.255.252
+ no shutdown
+ exit
+
+interface GigabitEthernet0/1
+ description RED_PUBLICA_INTERNET_CLIENTES
+ ip address 198.51.100.1 255.255.255.0
+ no shutdown
+ exit
+
+! Ruta estática para alcanzar las subredes privadas a través del Firewall
+ip route 10.10.0.0 255.255.0.0 203.0.113.2
+
+end
+write memory
+</code></pre>
+<hr />
+<h2 id="6-pruebas-de-impacto-y-validacion-en-directo-para-la-defensa">6. Pruebas de Impacto y Validación en Directo para la Defensa</h2>
+<p>Para la exposición ante el Tribunal de ASIR, se recomiendan las siguientes verificaciones ejecutables en directo desde las consolas de Packet Tracer:</p>
+<h3 id="prueba-1-demostracion-del-aislamiento-dmz-datalan">Prueba 1: Demostración del Aislamiento DMZ &rarr; DataLAN</h3>
+<ul>
+<li><strong>Acción:</strong> Desde la consola del servidor <code>Nginx-Proxy (10.10.10.10)</code>, ejecutar ping al servidor de base de datos <code>DB-Master (10.10.30.10)</code>:
+  <code>cmd
+  ping 10.10.30.10</code></li>
+<li><strong>Resultado esperado:</strong> <code>Request timed out</code> (Pérdida del 100%). Demuestra que la ACL 101 bloquea cualquier intento de salto lateral desde la capa web pública hacia los datos.</li>
+</ul>
+<h3 id="prueba-2-conectividad-valida-aplicacion-base-de-datos">Prueba 2: Conectividad Válida Aplicación &rarr; Base de Datos</h3>
+<ul>
+<li><strong>Acción:</strong> Desde el servidor <code>LMS-Moodle (10.10.20.10)</code>, ejecutar ping a <code>DB-Master (10.10.30.10)</code>:
+  <code>cmd
+  ping 10.10.30.10</code></li>
+<li><strong>Resultado esperado:</strong> Respuestas exitosas (<code>Reply from 10.10.30.10: bytes=32 time&lt;1ms TTL=254</code>). Demuestra que la aplicación tiene canal abierto y seguro hacia el motor de persistencia.</li>
+</ul>
+<h3 id="prueba-3-conectividad-reverse-proxy-aplicacion">Prueba 3: Conectividad Reverse Proxy &rarr; Aplicación</h3>
+<ul>
+<li><strong>Acción:</strong> Desde <code>Nginx-Proxy (10.10.10.10)</code>, ejecutar ping a <code>LMS-Moodle (10.10.20.10)</code>:
+  <code>cmd
+  ping 10.10.20.10</code></li>
+<li><strong>Resultado esperado:</strong> Respuestas exitosas (<code>Reply from 10.10.20.10: bytes=32 time&lt;1ms TTL=254</code>).</li>
+</ul>
+<h3 id="prueba-4-auditoria-de-hardening-ssh">Prueba 4: Auditoría de Hardening SSH</h3>
+<ul>
+<li><strong>Acción:</strong> Desde cualquier equipo de gestión o cliente, intentar acceder por SSH al router perimetral:
+  <code>cmd
+  ssh -l admin 10.10.40.1</code></li>
+<li><strong>Resultado esperado:</strong> Solicitud de contraseña de usuario local (<code>asir2026</code>), despliegue del banner MOTD de advertencia y acceso restringido al nivel privilegiado con <code>enable secret cisco123</code>.</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
