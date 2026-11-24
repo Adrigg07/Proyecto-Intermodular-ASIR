@@ -3,5 +3,5 @@ site_url: https://adrigg07.github.io/Proyecto-Intermodular-ASIR/
 nav:
   - Inicio: index.md
   - Introducción: 01_introduccion.md
-  - Redes y Conectividad: 02_redes.md
+  - Redes y Conectividad: 02_Configuracion_y_Diagrama_Red_ASIR.md
   -
